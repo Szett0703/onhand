@@ -1,0 +1,38 @@
+<header class="header">
+  <div class="left">
+    <!-- Botón hamburguesa visible en móvil -->
+    <button mat-icon-button class="burger" (click)="sidebar.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <!-- Ícono que lleva al inicio -->
+    <a routerLink="/dashboard" class="logo-link">
+      <mat-icon class="logo">workspace_premium</mat-icon>
+    </a>
+
+    <span class="title">OnHand</span>
+  </div>
+
+  <div class="right">
+    <!-- Notificaciones -->
+    <button mat-icon-button matTooltip="Notificaciones">
+      <mat-icon>notifications</mat-icon>
+    </button>
+
+    <!-- Avatar con menú -->
+    <button mat-icon-button [matMenuTriggerFor]="userMenu" class="avatar-button">
+      <img class="avatar" src="https://i.pravatar.cc/32?u=user" alt="Usuario">
+    </button>
+
+    <mat-menu #userMenu="matMenu">
+      <button mat-menu-item routerLink="/profile">
+        <mat-icon>person</mat-icon>
+        <span>Perfil</span>
+      </button>
+      <button mat-menu-item (click)="auth.logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Cerrar sesión</span>
+      </button>
+    </mat-menu>
+  </div>
+</header>

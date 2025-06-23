@@ -1,0 +1,48 @@
+/* ---------- Wrapper & Card ---------- */
+.wrapper {
+  max-width: 1180px;
+  margin: 24px auto;
+}
+.card {
+  padding: 16px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ---------- Barra de filtro ---------- */
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+mat-form-field { width: 300px; }
+@media (max-width: 600px) { mat-form-field { width: 100%; } }
+
+/* ---------- Tabla ---------- */
+table { width: 100%; border-collapse: collapse; }
+
+/* Cabecera pegajosa */
+th.mat-header-cell {
+  position: sticky;
+  top: 0; z-index: 10;
+  background: #f5f7fa;
+  border-bottom: 1px solid #e0e0e0;
+  font-weight: 600;
+}
+
+/* Celdas */
+td.mat-cell, th.mat-header-cell { padding: 8px 12px; }
+
+/* Zebra stripes */
+tr.mat-row:nth-child(even) td.mat-cell { background: #fcfcfc; }
+
+/* Hover & cursor clicable */
+.row-hover { cursor: pointer; transition: background 0.15s; }
+.row-hover:hover td.mat-cell { background: #eaf2ff; }
+
+/* Icono de orden */
+.mat-sort-header-arrow { color: #1976d2; }
+
+/* Paginador */
+mat-paginator { margin-top: 8px; }

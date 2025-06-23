@@ -1,0 +1,41 @@
+/* ==========  app.component.css  ========== */
+
+/* ---- raíz del componente ---- */
+:host {
+  display: flex;            /* columna: header + layout */
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;         /* corta barras externas */
+}
+
+/* ---- header fijo ---- */
+app-header {
+  flex: 0 0 60px;           /* alto 60 px */
+}
+
+/* ---- fila principal (sidebar + contenido) ---- */
+.layout {
+  display: flex;
+  flex: 1 1 auto;           /* ocupa el resto del alto */
+  min-height: 0;            /* evita overflow vertical */
+}
+
+/* Sidebar deja que su CSS calcule su ancho (60 ↔ 250 px) */
+app-sidebar {
+  flex: 0 0 auto;
+}
+
+/* ---- área de contenido ---- */
+.content {
+  flex: 1 1 auto;
+  min-width: 0;             /* evita overflow horizontal */
+  overflow: auto;           /* scroll sólo aquí */
+  padding: 16px;            /* ⬅️ margen más pequeño */
+  background: #f0f2f5;      /* gris muy leve */
+  transition: padding 0.25s ease;
+}
+
+/* ---- pantallas pequeñas (< 768 px) ---- */
+@media (max-width: 767px) {
+  .content { padding: 12px; }
+}

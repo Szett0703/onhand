@@ -1,0 +1,56 @@
+/* Título del diálogo */
+.dialog-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #2c3e50;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Contenedor del contenido con scroll si es necesario */
+.content {
+  padding: 1rem 0;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+/* Grid de información: dos columnas */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem 1.5rem;
+}
+
+/* Estilo de cada fila (tarjeta pequeña) */
+.info-row {
+  background: #f9f9f9;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.info-row b {
+  color: #34495e;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.info-row span {
+  color: #2d3436;
+  font-size: 0.95rem;
+}
+
+/* Hace que la fila de “Received Date” ocupe ambas columnas */
+.info-row.wide {
+  grid-column: span 2;
+}
+
+/* Separador y espaciado superior para las acciones */
+[mat-dialog-actions] {
+  margin-top: 1rem;
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+}

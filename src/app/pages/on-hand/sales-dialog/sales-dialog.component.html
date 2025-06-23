@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>{{ data.label }}</h2>
+<mat-dialog-content>
+  <canvas baseChart
+          [data]="lineData"
+          [options]="lineOptions"
+          chartType="line">
+  </canvas>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cerrar</button>
+</mat-dialog-actions>

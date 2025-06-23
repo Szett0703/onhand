@@ -1,0 +1,33 @@
+.login-wrapper {
+  height: calc(100vh - 60px);        /* bajo el header */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-main, #f5f7fa);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 32px 24px;
+  border-radius: 12px;
+  box-shadow: var(--shadow, 0 4px 12px rgba(0,0,0,0.08));
+  background: var(--c-card, #ffffff);
+}
+
+.title {
+  margin: 0 0 24px;
+  text-align: center;
+  color: var(--text, #37474f);
+}
+
+.full {
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .login-card {
+    margin: 0 12px;
+    padding: 24px 16px;
+  }
+}

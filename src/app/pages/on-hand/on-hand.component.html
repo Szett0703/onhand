@@ -1,0 +1,70 @@
+<!-- on-hand.component.html -->
+<mat-toolbar color="primary" class="appbar">
+  <span class="logo">OnHand</span>
+  <mat-form-field appearance="outline" class="upc-field">
+    <mat-label>UPC</mat-label>
+    <input matInput maxlength="12"
+           [formControl]="upc"
+           (keyup.enter)="search()" />
+  </mat-form-field>
+  <button mat-icon-button color="accent" (click)="search()">
+    <mat-icon>search</mat-icon>
+  </button>
+  <button mat-icon-button (click)="reset()">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-toolbar>
+
+<section *ngIf="notFound" class="no-result">
+  <mat-icon color="warn">info</mat-icon> UPC no encontrado
+</section>
+
+<mat-card *ngIf="product as p" class="full-card mat-elevation-z3">
+  <mat-card-header>
+    <mat-card-title>{{ p.productName }}</mat-card-title>
+    <mat-card-subtitle>{{ p.brand }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+
+  <!-- GRID de datos -->
+  <section class="grid">
+    <div class="info"><b>UPC</b><span>{{ p.upc }}</span></div>
+    <div class="info"><b>PLU</b><span>{{ p.plu }}</span></div>
+    <div class="info"><b>SKU</b><span>{{ p.sku }}</span></div>
+    <div class="info"><b>Aisle</b><span>{{ p.aisle }}</span></div>
+    <div class="info"><b>Inventory</b><span>{{ p.inventory }}</span></div>
+    <div class="info"><b>Vendor</b><span>{{ p.vendor }}</span></div>
+    <div class="info"><b>Last Sold</b><span>{{ p.lastSold }}</span></div>
+    <div class="info"><b>Last Cost</b><span>{{ p.lastCost | currency }}</span></div>
+    <div class="info"><b>Retail</b><span>{{ p.retailPrice | currency }}</span></div>
+    <div class="info"><b>Our Price</b><span>{{ p.ourPrice | currency }}</span></div>
+    <div class="info"><b>Received Qty</b><span>{{ p.receivedQty }}</span></div>
+    <div class="info"><b>Sold</b><span>{{ p.sold }}</span></div>
+    <div class="info wide"><b>Received Date</b><span>{{ p.receivedDate }}</span></div>
+  </section>
+
+  <!-- Métricas clicables -->
+  <section class="metrics">
+    <div class="box" (click)="openSales(7, p.sell7days, '7 DÍAS')" role="button">
+      <label>7 DÍAS</label>
+      <span>{{ p.sell7days }}</span>
+    </div>
+    <div class="box" (click)="openSales(30, p.sell30days, '30 DÍAS')" role="button">
+      <label>30 DÍAS</label>
+      <span>{{ p.sell30days }}</span>
+    </div>
+    <div class="box" (click)="openSales(90, p.sell90days, '90 DÍAS')" role="button">
+      <label>90 DÍAS</label>
+      <span>{{ p.sell90days }}</span>
+    </div>
+    <div class="box" (click)="openSales(180, p.sell180days, '180 DÍAS')" role="button">
+      <label>180 DÍAS</label>
+      <span>{{ p.sell180days }}</span>
+    </div>
+  </section>
+
+  <!-- Gráfico de línea promedio diario -->
+  <div class="chart-container">
+    <canvas #salesChart class="sales-chart"></canvas>
+  </div>
+</mat-card>

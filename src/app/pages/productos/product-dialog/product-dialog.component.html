@@ -1,0 +1,35 @@
+<h2 mat-dialog-title class="dialog-title">
+  {{ data.productName }}
+</h2>
+
+<div mat-dialog-content class="content">
+  <div class="info-grid">
+    <div *ngFor="let item of [
+      { label: 'UPC',           value: data.upc },
+      { label: 'PLU',           value: data.plu },
+      { label: 'SKU',           value: data.sku },
+      { label: 'Brand',         value: data.brand },
+      { label: 'Aisle',         value: data.aisle },
+      { label: 'Inventory',     value: data.inventory },
+      { label: 'Vendor',        value: data.vendor },
+      { label: 'Last Sold',     value: data.lastSold },
+      { label: 'Last Cost',     value: (data.lastCost | currency) },
+      { label: 'Retail',        value: (data.retailPrice | currency) },
+      { label: 'Our Price',     value: (data.ourPrice | currency) },
+      { label: 'Received Qty',  value: data.receivedQty },
+      { label: 'Sold',          value: data.sold },
+      { label: 'Received Date', value: data.receivedDate }
+    ]"
+    class="info-row"
+    [class.wide]="item.label === 'Received Date'">
+      <b>{{ item.label }}</b>
+      <span>{{ item.value }}</span>
+    </div>
+  </div>
+</div>
+
+<div mat-dialog-actions align="end">
+  <button mat-flat-button mat-dialog-close color="primary">
+    Cerrar
+  </button>
+</div>

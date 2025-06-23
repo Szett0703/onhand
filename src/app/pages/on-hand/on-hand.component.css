@@ -1,0 +1,204 @@
+/* on-hand.component.css */
+
+/* -----------------------------------------------------------
+   PALETA Y VARIABLES
+----------------------------------------------------------- */
+:root {
+  --c-bg-main   : #f5f7fa;
+  --c-card      : #ffffff;
+  --c-line      : #e1e4e8;
+  --c-text-main : #37474f;
+  --c-text-sub  : #607d8b;
+  --c-primary   : #1976d2;
+  --c-primary-t : #1565c0;
+  --radius      : 10px;
+  --shadow      : 0 4px 12px rgba(0,0,0,.10);
+}
+
+/* -----------------------------------------------------------
+   RESET GLOBAL (sólo dentro del componente)
+----------------------------------------------------------- */
+:host {
+  display: block;
+  color: var(--c-text-main);
+  background: var(--c-bg-main);
+  font-family: Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* -----------------------------------------------------------
+   APP BAR
+----------------------------------------------------------- */
+.appbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  backdrop-filter: blur(6px);
+}
+.logo {
+  font-weight: 600;
+  margin-right: 24px;
+}
+.upc-field {
+  flex: 1 1 280px;
+  max-width: 420px;
+}
+
+/* -----------------------------------------------------------
+   MENSAJE ERROR
+----------------------------------------------------------- */
+.no-result {
+  margin: 16px;
+  padding: 8px 12px;
+  border-left: 4px solid #d32f2f;
+  background: #fff7f7;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #b71c1c;
+  border-radius: var(--radius);
+}
+
+/* -----------------------------------------------------------
+   CARD PRINCIPAL
+----------------------------------------------------------- */
+.full-card {
+  margin: 24px auto;
+  max-width: 1180px;
+  background: var(--c-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  animation: fadeIn .4s ease-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+.mat-mdc-card-header {
+  padding: 20px 24px;
+  background: linear-gradient(90deg,#fff,#f7f9fc);
+}
+.mat-mdc-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.mat-mdc-card-subtitle {
+  color: var(--c-text-sub);
+}
+.mat-mdc-divider {
+  border-color: var(--c-line);
+}
+
+/* -----------------------------------------------------------
+   GRID DE INFORMACIÓN
+----------------------------------------------------------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 20px 32px;
+  padding: 24px;
+  background: #fafbfc;
+}
+.info {
+  background: var(--c-card);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform .2s ease;
+}
+.info:hover {
+  transform: translateY(-3px);
+}
+.info b {
+  color: var(--c-text-sub);
+  font-size: .75rem;
+  letter-spacing: .4px;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+.info span {
+  font-size: .95rem;
+  font-weight: 500;
+  color: var(--c-text-main);
+}
+.grid .wide {
+  grid-column: span 2;
+}
+
+/* -----------------------------------------------------------
+   MÉTRICAS DE VENTA
+----------------------------------------------------------- */
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+  gap: 24px;
+  padding: 24px;
+  background: linear-gradient(180deg,#f3f6fa 0%,#34495e 100%);
+  border-top: 1px solid var(--c-line);
+}
+.box {
+  position: relative;
+  background: var(--c-card);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius);
+  padding: 22px 16px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform .25s cubic-bezier(.4,0,.2,1), box-shadow .25s;
+}
+.box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.18);
+}
+.box::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 4px;
+  background: var(--c-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .25s cubic-bezier(.4,0,.2,1);
+}
+.box:hover::after {
+  transform: scaleX(1);
+}
+.box label {
+  display: block;
+  font-size: .75rem;
+  color: var(--c-primary-t);
+  letter-spacing: .5px;
+}
+.box span {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--c-primary);
+  line-height: 1.2;
+}
+
+/* -----------------------------------------------------------
+   GRÁFICO
+----------------------------------------------------------- */
+.chart-container {
+  margin: 24px;
+}
+.sales-chart {
+  display: block;
+  width: 100%;
+  height: 300px;
+}
+
+/* -----------------------------------------------------------
+   RESPONSIVE
+----------------------------------------------------------- */
+@media (max-width: 700px) {
+  .upc-field { max-width: 260px; }
+  .grid      { gap: 16px 20px; padding: 20px; }
+  .metrics   { gap: 16px; padding: 20px; }
+  .full-card { margin: 16px; }
+}
