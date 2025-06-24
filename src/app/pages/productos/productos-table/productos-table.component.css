@@ -1,48 +1,92 @@
 /* ---------- Wrapper & Card ---------- */
 .wrapper {
   max-width: 1180px;
-  margin: 24px auto;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
 .card {
-  padding: 16px;
+  padding: 1.5rem;
   background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+mat-card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2d4a2f;
+  margin-bottom: 1rem;
 }
 
 /* ---------- Barra de filtro ---------- */
 .toolbar {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 12px;
+  margin-bottom: 1rem;
 }
-mat-form-field { width: 300px; }
-@media (max-width: 600px) { mat-form-field { width: 100%; } }
+mat-form-field {
+  width: 300px;
+}
+@media (max-width: 600px) {
+  mat-form-field {
+    width: 100%;
+  }
+}
 
 /* ---------- Tabla ---------- */
-table { width: 100%; border-collapse: collapse; }
-
-/* Cabecera pegajosa */
-th.mat-header-cell {
-  position: sticky;
-  top: 0; z-index: 10;
-  background: #f5f7fa;
-  border-bottom: 1px solid #e0e0e0;
-  font-weight: 600;
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
-/* Celdas */
-td.mat-cell, th.mat-header-cell { padding: 8px 12px; }
+th.mat-header-cell {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #f4f6f9;
+  border-bottom: 1px solid #e0e0e0;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #37474f;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+td.mat-cell,
+th.mat-header-cell {
+  padding: 0.75rem 1rem;
+  font-size: 0.92rem;
+}
 
 /* Zebra stripes */
-tr.mat-row:nth-child(even) td.mat-cell { background: #fcfcfc; }
+tr.mat-row:nth-child(even) td.mat-cell {
+  background: #fafafa;
+}
 
-/* Hover & cursor clicable */
-.row-hover { cursor: pointer; transition: background 0.15s; }
-.row-hover:hover td.mat-cell { background: #eaf2ff; }
+/* Hover interactivo */
+.row-hover {
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+.row-hover:hover td.mat-cell {
+  background: #e3f2fd;
+}
 
-/* Icono de orden */
-.mat-sort-header-arrow { color: #1976d2; }
+/* Ordenador visual */
+.mat-sort-header-arrow {
+  color: #1976d2;
+}
 
-/* Paginador */
-mat-paginator { margin-top: 8px; }
+/* ---------- Paginador ---------- */
+mat-paginator {
+  margin-top: 1rem;
+}
+.mat-paginator-container {
+  justify-content: flex-end;
+}
+.mat-paginator-range-label,
+.mat-paginator-icon {
+  color: #607d8b;
+}

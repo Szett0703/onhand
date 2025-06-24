@@ -1,6 +1,8 @@
-<nav class="sidebar" [class.collapsed]="sidebar.collapsed()"
-                    [class.overlay]="isMobile()">
-
+<nav
+  class="sidebar"
+  [class.collapsed]="sidebar.collapsed()"
+  [class.overlay]="isMobile()"
+>
   <h2 class="logo">OnHand</h2>
 
   <ul class="menu">
@@ -10,11 +12,16 @@
         <span class="label">On hand</span>
       </a>
     </li>
-
     <li>
       <a routerLink="/productos" routerLinkActive="active">
         <span class="material-icons">shopping_bag</span>
         <span class="label">Productos</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/ordenes" routerLinkActive="active">
+        <span class="material-icons">list_alt</span>
+        <span class="label">Órdenes</span>
       </a>
     </li>
   </ul>

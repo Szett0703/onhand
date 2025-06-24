@@ -7,6 +7,7 @@ import { OnHandComponent }     from './pages/on-hand/on-hand.component';
 import { ProductosComponent }  from './pages/productos/productos.component';
 
 import { authGuard }           from './guards/auth.guard';
+import { OrdersComponent } from './pages/orders/orders.component';
 
 export const routes: Routes = [
   /* ---------- login abierto ---------- */
@@ -23,6 +24,8 @@ export const routes: Routes = [
 
       { path: 'on-hand',   component: OnHandComponent },
       { path: 'productos', component: ProductosComponent },
+      { path: 'orders', component: OrdersComponent },
+
 
       { path: '**', redirectTo: '' }
     ]
