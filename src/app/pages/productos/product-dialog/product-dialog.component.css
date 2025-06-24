@@ -1,56 +1,84 @@
-/* Título del diálogo */
+/* ---------- Título del diálogo ---------- */
 .dialog-title {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #2c3e50;
-  border-bottom: 1px solid #ddd;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #2d4a2f;
+  margin: 0 0 1rem 0;
   padding-bottom: 0.5rem;
-  margin-bottom: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: center;
 }
 
-/* Contenedor del contenido con scroll si es necesario */
+/* ---------- Contenido scrollable ---------- */
 .content {
-  padding: 1rem 0;
+  padding: 0.5rem 0 1rem;
   max-height: 70vh;
   overflow-y: auto;
 }
 
-/* Grid de información: dos columnas */
+/* ---------- Grid de información ---------- */
 .info-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem 1.5rem;
 }
 
-/* Estilo de cada fila (tarjeta pequeña) */
+/* ---------- Card de cada fila ---------- */
 .info-row {
-  background: #f9f9f9;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
+  transition: transform 0.2s ease;
+}
+.info-row:hover {
+  transform: translateY(-2px);
 }
 
 .info-row b {
-  color: #34495e;
-  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #607d8b;
   margin-bottom: 0.25rem;
+  letter-spacing: 0.5px;
 }
 
 .info-row span {
-  color: #2d3436;
   font-size: 0.95rem;
+  font-weight: 500;
+  color: #37474f;
 }
 
-/* Hace que la fila de “Received Date” ocupe ambas columnas */
+/* Fila destacada */
 .info-row.wide {
   grid-column: span 2;
 }
 
-/* Separador y espaciado superior para las acciones */
+/* ---------- Acciones ---------- */
 [mat-dialog-actions] {
   margin-top: 1rem;
-  border-top: 1px solid #eee;
   padding-top: 1rem;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: flex-end;
 }
+
+[mat-dialog-actions] button {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+
+@media (max-width: 500px) {
+  .dialog-title {
+    font-size: 1.25rem;
+  }
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

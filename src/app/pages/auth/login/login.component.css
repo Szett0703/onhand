@@ -1,33 +1,64 @@
 .login-wrapper {
-  height: calc(100vh - 60px);        /* bajo el header */
+  height: calc(100vh - 60px); /* debajo del header */
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--bg-main, #f5f7fa);
+  background: #f4f6f9;
 }
 
 .login-card {
   width: 100%;
   max-width: 400px;
-  padding: 32px 24px;
-  border-radius: 12px;
-  box-shadow: var(--shadow, 0 4px 12px rgba(0,0,0,0.08));
-  background: var(--c-card, #ffffff);
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.4s ease-in-out;
 }
 
 .title {
-  margin: 0 0 24px;
+  margin-bottom: 2rem;
   text-align: center;
-  color: var(--text, #37474f);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #2d4a2f;
+  letter-spacing: 0.5px;
 }
 
 .full {
   width: 100%;
+  margin-bottom: 1.2rem;
+}
+
+.submit-btn {
+  margin-top: 0.5rem;
+  padding: 0.75rem 0;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background-color: #2d4a2f !important;
+  color: #fff !important;
+}
+
+.submit-btn:hover {
+  background-color: #1f3421 !important;
 }
 
 @media (max-width: 600px) {
   .login-card {
     margin: 0 12px;
-    padding: 24px 16px;
+    padding: 2rem 1.5rem;
+  }
+}
+
+/* Sutil animación de entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
