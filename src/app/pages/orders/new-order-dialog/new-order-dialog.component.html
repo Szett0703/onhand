@@ -1,0 +1,83 @@
+<!-- new-order-dialog.component.html -->
+<h2 mat-dialog-title>Nueva Orden - EAST COAST</h2>
+
+<mat-dialog-content [formGroup]="form">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z2">
+    <!-- Declaramos el FormArray -->
+    <ng-container formArrayName="items">
+
+      <!-- La fila que repite, usando formGroupName -->
+      <tr mat-header-row *matHeaderRowDef="[
+        'select','UPC_Code','Brand','DESC_EN1',
+        'Sold7Days','Sold30Days','Sold90Days','Sold180Days','qty'
+      ]"></tr>
+
+      <tr mat-row *matRowDef="let row; let i = index;
+           columns: [
+             'select','UPC_Code','Brand','DESC_EN1',
+             'Sold7Days','Sold30Days','Sold90Days','Sold180Days','qty'
+           ]"
+          [formGroupName]="i">
+        <!-- Selección -->
+        <ng-container matColumnDef="select">
+          <td mat-cell *matCellDef="let o">
+            <mat-checkbox formControlName="selected"></mat-checkbox>
+          </td>
+        </ng-container>
+
+        <!-- UPC -->
+        <ng-container matColumnDef="UPC_Code">
+          <td mat-cell *matCellDef="let o">{{ o.UPC_Code }}</td>
+        </ng-container>
+
+        <!-- Marca -->
+        <ng-container matColumnDef="Brand">
+          <td mat-cell *matCellDef="let o">{{ o.Brand }}</td>
+        </ng-container>
+
+        <!-- Descripción -->
+        <ng-container matColumnDef="DESC_EN1">
+          <td mat-cell *matCellDef="let o">{{ o.DESC_EN1 }}</td>
+        </ng-container>
+
+        <!-- Ventas 7d -->
+        <ng-container matColumnDef="Sold7Days">
+          <td mat-cell *matCellDef="let o">{{ o.Sold7Days }}</td>
+        </ng-container>
+
+        <!-- Ventas 30d -->
+        <ng-container matColumnDef="Sold30Days">
+          <td mat-cell *matCellDef="let o">{{ o.Sold30Days }}</td>
+        </ng-container>
+
+        <!-- Ventas 90d -->
+        <ng-container matColumnDef="Sold90Days">
+          <td mat-cell *matCellDef="let o">{{ o.Sold90Days }}</td>
+        </ng-container>
+
+        <!-- Ventas 180d -->
+        <ng-container matColumnDef="Sold180Days">
+          <td mat-cell *matCellDef="let o">{{ o.Sold180Days }}</td>
+        </ng-container>
+
+        <!-- Cantidad -->
+        <ng-container matColumnDef="qty">
+          <td mat-cell *matCellDef="let o">
+            <input
+              matInput
+              type="number"
+              formControlName="qty"
+              min="1"
+              style="width: 60px;"
+            />
+          </td>
+        </ng-container>
+      </tr>
+    </ng-container>
+  </table>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button mat-flat-button color="primary" (click)="submit()">Enviar orden</button>
+</mat-dialog-actions>
